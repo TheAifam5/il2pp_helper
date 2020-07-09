@@ -1,0 +1,33 @@
+#pragma once
+
+namespace icsaoy::hooks {
+  namespace server_actions {
+    extern uint8_t* tramp_rpc_get_kicked;
+
+    extern void __fastcall rpc_get_kicked(Il2CppObject* self, Il2CppObject* player, Il2CppObject* reason);
+  }
+
+  namespace ai_controller {
+    extern uint8_t* tramp_fixed_update;
+    extern uint8_t* tramp_update;
+
+    extern void __fastcall fixed_update(Il2CppObject* self);
+    extern void __fastcall update(Il2CppObject* self);
+  }
+
+  namespace ui {
+    namespace menu_player_listing {
+      extern uint8_t* tramp_update;
+
+      extern void __fastcall update(Il2CppObject* self);
+
+      namespace on_value_changed {
+        extern uint8_t* tramp_team_dropdown;
+        extern uint8_t* tramp_class_dropdown;
+
+        extern void __fastcall team_dropdown(Il2CppObject* self, int defaultValue);
+        extern void __fastcall class_dropdown(Il2CppObject* self, int defaultValue);
+      }
+    }
+  }
+}

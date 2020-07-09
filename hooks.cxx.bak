@@ -1,0 +1,124 @@
+#include "prerequisites.hxx"
+#include "hooks.hxx"
+#include "il2cpp.hxx"
+#include "il2cpp_impl.hxx"
+
+using namespace icsaoy;
+
+namespace icsaoy::hooks {
+  namespace server_actions {
+    uint8_t* tramp_rpc_get_kicked = nullptr;
+
+    void  rpc_get_kicked(Il2CppObject*, Il2CppObject*, Il2CppObject*)
+    { }
+  }
+
+  namespace ai_controller {
+    uint8_t* tramp_fixed_update = nullptr;
+    uint8_t* tramp_update = nullptr;
+
+    void __fastcall fixed_update(Il2CppObject*)
+    { }
+
+    void __fastcall update(Il2CppObject* self)
+    {
+      try {
+        auto obj = std::make_shared<il2cpp_object>(self);
+        auto obj_class = obj->get_class();
+
+        obj_class->get_field("damage")->set_value(obj, 0xFF);
+        obj_class->get_field("attackRate")->set_value(obj, FLT_MAX);
+        obj_class->get_field("pauseTime")->set_value(obj, 0.f);
+        obj_class->get_field("cooldown")->set_value(obj, 0.f);
+        obj_class->get_field("pauseTimer")->set_value(obj, 0.f);
+        obj_class->get_field("isDead")->set_value(obj, false);
+        obj_class->get_field("timeDead")->set_value(obj, 0.f);
+      }
+      catch (...)
+      {
+        icsaoy_rethrow();
+      }
+    }
+  }
+
+  namespace ui {
+    namespace menu_player_listing {
+      uint8_t* tramp_update;
+
+      void __fastcall update(Il2CppObject* self) {
+        try {
+          auto obj = std::make_shared<il2cpp_object>(self);
+          auto obj_class = obj->get_class();
+
+          if (!obj_class->get_field("hasBeenSetup")->get_value<bool>(obj))
+            return;
+
+          auto team_dropdown = obj_class->get_field("teamDropdown")->get_value<il2cpp_object_ptr>(obj);
+          // team_dropdown->get_class()->get_property("interactable")->set_value(team_dropdown, true);
+
+          auto class_dropdown = obj_class->get_field("classDropdown")->get_value<il2cpp_object_ptr>(obj);
+          // class_dropdown->get_class()->get_property("interactable")->set_value(class_dropdown, true);
+        }
+        catch (...)
+        {
+          icsaoy_rethrow();
+        }
+      }
+
+      namespace on_value_changed {
+        uint8_t* tramp_team_dropdown;
+        uint8_t* tramp_class_dropdown;
+
+        void __fastcall team_dropdown(Il2CppObject* self, int) {
+          try {
+            auto obj = std::make_shared<il2cpp_object>(self);
+            auto obj_class = obj->get_class();
+
+            if (!obj_class->get_field("hasBeenSetup")->get_value<bool>(obj))
+              return;
+
+            auto player = obj_class->get_field("player")->get_value<il2cpp_object_ptr>(obj);
+            auto playerClass = player->get_class();
+            auto dropdown = obj_class->get_field("teamDropdown")->get_value<il2cpp_object_ptr>(obj);
+
+            auto dropdownValue = dropdown->get_class()->get_property("value")->get_value<int>(dropdown);
+
+            auto customProps = playerClass->get_property("CustomProperties")->get_value<il2cpp_object_ptr>(player);
+            customProps->get_class()->get_property("Item")->set_value(customProps, il2cpp_arg_builder::create()->arg("Class")->arg(dropdownValue));
+
+            playerClass->get_method("SetCustomProperties", 3)->invoke(player, il2cpp_arg_builder::create()->arg(customProps));
+          }
+          catch (...)
+          {
+            icsaoy_rethrow();
+          }
+        }
+
+        void __fastcall class_dropdown(Il2CppObject* self, int) {
+          try {
+            auto obj = std::make_shared<il2cpp_object>(self);
+            auto obj_class = obj->get_class();
+
+            if (!obj_class->get_field("hasBeenSetup")->get_value<bool>(obj))
+              return;
+
+            auto player = obj_class->get_field("player")->get_value<il2cpp_object_ptr>(obj);
+            auto playerClass = player->get_class();
+            auto dropdown = obj_class->get_field("classDropdown")->get_value<il2cpp_object_ptr>(obj);
+
+            auto dropdownValue = dropdown->get_class()->get_property("value")->get_value<int>(dropdown);
+
+            auto customProps = playerClass->get_property("CustomProperties")->get_value<il2cpp_object_ptr>(player);
+            customProps->get_class()->get_property("Item")->set_value(customProps, il2cpp_arg_builder::create()->arg("Class")->arg(dropdownValue));
+
+            playerClass->get_method("SetCustomProperties", 3)->invoke(player, il2cpp_arg_builder::create()->arg(customProps));
+          }
+          catch (...)
+          {
+            icsaoy_rethrow();
+          }
+        }
+      }
+    }
+  }
+}

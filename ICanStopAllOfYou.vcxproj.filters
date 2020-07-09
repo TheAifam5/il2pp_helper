@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="prerequisites.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bootloader.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="system.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="patches\ai_controller\update.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="patches\ui\room\on_player_entered.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="patches\ui\menu_region_select\on_click_select_region.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="il2cpp.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="patches\buildable\ctor.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="patches\buildable_preview\update.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="patches\attacker_placement_logic\can_place_unit_at_location.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ipatch.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="patches\ui\buildable_menu\start.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="prerequisites.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bootloader.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="system.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="assert_exception.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ipatch.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="isystem.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="patches\ai_controller\update.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="patches\ui\room\on_player_entered.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="patches\ui\menu_region_select\on_click_select_region.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="il2cpp.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="non_assignable.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="patches\buildable\ctor.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="patches\buildable_preview\update.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="patches\attacker_placement_logic\can_place_unit_at_location.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="patches\ui\buildable_menu\start.hxx">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include="cpp.hint" />
+    <None Include=".editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Text.txt" />
+  </ItemGroup>
+</Project>
