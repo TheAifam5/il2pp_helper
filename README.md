@@ -1,4 +1,4 @@
-# IL2CPP Introspection Library
+# IL2CPP Helper Library
 #### This code is mainly for education purposes
 
 The important stuff is inside the `il2cpp.cxx` and `il2cpp.hxx` files.
@@ -50,5 +50,9 @@ del %exports_file% %def_file% %dll_file_no_ext%.exp
 - Link the previously created `.lib`.
 - Add `il2cpp.cxx` and `il2cpp.hxx`.
 
+Also useful to use:
+- github.com/djkaty/Il2CppInspector
+- github.com/Perfare/Il2CppDumper
+
 ## Example
-This project contains an example for the "You can stop all of us" game.
+This project contains an example for the "You Can't Stop All Of Us" game.
